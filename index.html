@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fun Facts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .fact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .fact-counter {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Fun Facts 🎉</h1>
+        <div class="fact-box" id="factBox">
+            Click the button to get a random fun fact!
+        </div>
+        <button onclick="displayRandomFact()">Get Random Fact</button>
+        <div class="fact-counter">
+            Fact <span id="factNumber">1</span> of <span id="totalFacts">20</span>
+        </div>
+    </div>
+
+    <script>
+        const facts = [
+            "Honey never spoils. Archaeologists have found 3000-year-old honey in Egyptian tombs that was still edible!",
+            "A group of flamingos is called a 'flamboyance'.",
+            "Octopuses have three hearts – two pump blood to the gills, one to the rest of the body.",
+            "Bananas are berries, but strawberries aren't! Botanically speaking, bananas are berries but strawberries are aggregate fruits.",
+            "A day on Venus is longer than its year. Venus takes 243 days to rotate on its axis but only 225 days to orbit the sun.",
+            "Honey bees can recognize human faces.",
+            "The Great Wall of China isn't visible from space with the naked eye – it's too small and blends with the landscape.",
+            "Polar bears have black skin under their white fur.",
+            "A group of crows is called a 'murder'.",
+            "Cleopatra lived closer to the moon landing than to the construction of the Great Pyramid.",
+            "Sharks are older than trees. Sharks have existed for over 450 million years, while trees have only existed for about 350 million years.",
+            "A cow-eye jellyfish is 95% water.",
+            "Wombats produce cube-shaped poop to mark their territory.",
+            "The shortest war in history was between Britain and Zanzibar in 1896 – it lasted only 38 to 45 minutes.",
+            "Cats have a special collarbone that allows them to squeeze through tight spaces.",
+            "The smell of fresh-cut grass is actually a chemical signal plants release when they're wounded.",
+            "A group of porcupines is called a 'prickle'.",
+            "Sloths only defecate once a week and lose up to 30% of their body weight when they do.",
+            "Butterflies taste with their feet to find out whether the leaf they sit on is good to lay eggs on.",
+            "Scotland's national animal is a unicorn!"
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayRandomFact() {
+            currentFactIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('factBox').textContent = facts[currentFactIndex];
+            document.getElementById('factNumber').textContent = currentFactIndex + 1;
+        }
+
+        // Display first fact on page load
+        window.addEventListener('load', displayRandomFact);
+    </script>
+</body>
+</html>
